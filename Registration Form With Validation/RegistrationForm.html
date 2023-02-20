@@ -1,0 +1,159 @@
+<html>
+<head>
+<title> Student Registration Form </title>
+</head>
+<body style="background-color:powderblue">
+    
+<center><h3>STUDENT REGISTRATION FORM</h3></center>
+<form name="form"  onsubmit="return myFunc()" action="/tittle.html">
+<fieldset>
+<legend> Persional Details: </legend>
+<table>
+<tr>
+<td>First Name:</td>
+<td> <input type="text" maxlength="30" autocomplete="on" autofocus /></td>
+</tr>
+<tr>
+<td>Last Name:</td>
+<td> <input type="text" maxlength="30" autocomplete="on" /></td>
+</tr>
+<tr>
+<td>Date Of Birth:</td>
+<td> <input type="text" placeholder="DD/MM/YYYY " maxlength="10" autocomplete="on" /></td>
+</tr>
+    <tr>
+        <td>Age:</td>
+        <td><input type="number" id="Age"/></td>
+    </tr>
+<tr>
+<td>Email:</td>
+<td> <input type="text" id="Email" name="email" placeholder="name@gmail.com" autocomplete="on"/></td>
+</tr>
+<tr>
+<td>Phone No:</td>
+<td> <input type="text" id="Phone" name="number" placeholder="XXXXXXXXXX"  maxlength="10" pattern="[0-9]{10}" autocomplete="on" /></td>
+</tr>
+<tr>
+<td>Gender:</td>
+<td> 
+Male <input type="radio" name="Gender" value="Male" />
+Female <input type="radio" name="Gender" value="Female" />
+</td>
+</tr>
+<tr>
+<td>Address: </td>
+<td>
+<textarea id="address" name="address" rows="4" cols="50" autocomplete="on">
+</textarea>
+</td>
+</tr>
+<tr>
+<td>City:</td>
+<td> <input type="text" maxlength="20" autocomplete="on" /></td>
+</tr>
+<tr>
+<td>Pincode:</td>
+<td> <input id="pin" type="text" maxlength="6" autocomplete="on" /></td>
+</tr>
+<tr>
+<td>State:</td>
+<td> <input type="text" maxlength="30" autocomplete="on" /></td>
+</tr>
+<tr>
+<td><label for="cry"></label>Country</td>
+<td> <select name="cry" id="cry">
+    <option value="IND">India</option>
+    <option value="US">America</option>
+    <option value="ENG">England</option>
+    </select></td>
+</tr>
+<tr>
+<td>Hobbies:</td>
+<td>
+Drawing<input type="checkbox" name="drawing" value="Drawing"  />
+Singing<input type="checkbox" name="singing" value="Singing"  />
+Dancing<input type="checkbox" name="dancing" value="Dancing"  />
+Others<input type="text" name="Tex" placeholder="Mention Here"  />
+</td>
+</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend>Qualification:</legend>
+<table>
+<tr>
+<th align="center">Sl.No</th>
+<th align="center">Degree</th>
+<th align="center">Board</th>
+<th align="center">Percentage</th>
+<th align="center">Year Of Passing </th>
+</tr>
+<tr>
+<td>1</td>
+<td>SSLC</td>
+<td> <input type="text" placeholder="State or Central Board" /></td>
+<td> <input type="text" placeholder="XX.YY" /></td>
+<td> <input type="text" maxlength="4" /></td>
+</tr>
+<tr>
+<td>2</td>
+<td>HSC</td>
+<td> <input type="text" placeholder="State or Central Board" /></td>
+<td> <input type="text" placeholder="XX.YY" /></td>
+<td> <input type="text" maxlength="4" /></td>
+</tr>
+</table>
+</fieldset>
+<fieldset>
+<legend>Courses Applied For:</legend>
+<table>
+<tr>
+<td>  Courses :</td>
+<td>
+B Tech.IT <input type="radio" name="Course" value="B Tech.IT" />
+BE.Mech <input type="radio" name="Course" value="BE.Mech" />
+BE.Civil <input type="radio" name="Course" value="BE.Civil" />
+BE. EEE <input type="radio" name="Course" value="BE.EEE" />
+BE.ECE <input type="radio" name="Course" value="BE.ECE" />
+BE.CSE <input type="radio" name="Course" value="BE.CSE" />
+BE.BioTech <input type="radio" name="Course" value="BE.BioTech" />
+</td>
+</tr>
+</table>
+</fieldset>
+<center>
+    <button type="submit" onclick="tittle.html" >Submit</button>
+<input type="reset" value="Reset" />
+</center>
+<br>
+</form>
+<p id="demo"></p>
+<script>
+    function myFunc()
+    {
+        let x=document.getElementById("Age").value;
+        let flag=false
+        let y=document.getElementById("Phone").value
+        let Text="";
+        if (!y.match(/^\d{10}$/)){
+           flag=true
+           Text = Text+"Incorrect Phone number \n"
+        }
+        if(!(isNaN(x)||x>=18 && x<=22))
+        {
+            flag = true
+            Text = Text+"Incorrect Age \n";
+        }
+        let res = /^\w+\D{1}([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(!res.test(new String(document.getElementById("Email").value).toLowerCase())){
+            flag = true
+            Text = Text+"Enter a valid email \n";
+        }
+        if(flag){
+            window.alert(Text);
+        }
+        return !flag
+    }
+</script>
+</body>
+<html>
